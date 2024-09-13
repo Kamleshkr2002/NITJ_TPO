@@ -133,7 +133,7 @@ app.get("/auth", (req, res) => {
   res.render("auth/index.hbs", { URL: process.env.URL });
 });
 
-app.use(authenticate);
+// app.use(authenticate);
 app.get("/admin", (req, res) => {
   res.render("admin_panel/index.hbs", { URL: process.env.URL });
 });
