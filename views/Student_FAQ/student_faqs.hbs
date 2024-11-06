@@ -308,7 +308,7 @@
     const content = document.getElementById('content');
     const addFormDom = document.getElementById('QueryForm');
 
-    let faq_link = `{{URL}}/FAQs/Student`;
+    let faq_link = `{{URL}}/FAQs/`;
     fetch(faq_link)
         .then(response => response.json())
         .then(data => {
@@ -327,7 +327,8 @@
                     str2 += `
             <div class="w-full max-w-md bg-white border border-gray-200 rounded-lg shadow shadow-sky-500 px-3 py-5">
                 <div class="flex flex-col space-y-2">
-                    <h5 class="mb-1 font2 text-xl font-bold text-black">${faq.question}</h5>
+                    <h5 class="font2 text-xl font-bold text-black m-0">${faq.question}</h5>
+                    <p class="font2 text-sm text-grey" style="margin:0; color:grey;">(${faq.related})</p>
                     <span class="text-lg font2 font-bold text-sky-500">Answer</span>
                     <p class="font2 text-sm text-black">${faq.answer}</p>
                 </div>

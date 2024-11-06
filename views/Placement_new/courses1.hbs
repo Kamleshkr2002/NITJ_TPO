@@ -323,6 +323,7 @@
       try {
         const response = await fetch('http://localhost:8081/Placement_Insights/');
         const data = await response.json();
+        
 
         const filteredData = data.filter(item => item.course === degree && item.department === branch);
 

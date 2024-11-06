@@ -339,11 +339,7 @@ width: 200px;
                 <button class="transition delay-100 duration-300 hover:cursor-pointer hover:shadow-xl hover:bg-sky-400 hover:shadow-sky-500 hover:scale-110 w-full px-3 py-5 bg-white shadow shadow-gray-400 rounded-xl" onclick="toggleBranches('mba')">MBA</button>
                 <div id="mba-branches" class="branches-list">
                    <ul>
-                      <li onclick="toggleYears('mba','Marketing')">Marketing</li>
-                      <li onclick="toggleYears('mba','Finance')">Finance</li>
-                      <li onclick="toggleYears('mba','Human Resources')">Human Resources</li>
-                      <li onclick="toggleYears('mba','Operations')">Operations</li>
-                      <li onclick="toggleYears('mba','IT Management')">IT Management</li>
+                      <li onclick="toggleYears('mba','Humanities and Management')">Humanities and Management</li>
                   </ul>
 
                     <div id="mba-years" class="years-list">
@@ -373,6 +369,7 @@ width: 200px;
       try {
         const response = await fetch('{{URL}}/Placement_Insights/');
         const data = await response.json();
+        console.log(data);
         const filteredData = data.filter(item => item.course === degree && item.department === branch && item.year===Number(year));
 
         const aggregatedData = filteredData.reduce((acc, item) => {
