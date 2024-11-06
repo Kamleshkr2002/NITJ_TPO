@@ -14,6 +14,16 @@
 
   <style>
     * {
+/* Example styling for the header */
+header {
+    position: fixed; /* Fix the header to the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff; /* Background color for the header */
+    z-index: 1000; /* Higher z-index to ensure it stays on top */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for better visibility */
+}
       box-sizing: border-box;
       padding: 0;
       margin: 0;
@@ -22,6 +32,8 @@
     body {
       font-family: "Poppins";
     }
+
+
 
     #header {
       position: sticky;
@@ -227,6 +239,242 @@
 .prgram-btn{
 width: 200px;
 }
+/* Basic styles for the dropdown */
+        .branches-list, .years-list {
+            display: none;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .branches-list ul, .years-list ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        .branches-list li, .years-list li {
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        .branches-list li:hover, .years-list li:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown-open {
+            display: block;
+        }
+        .heading{
+          text-align: center;
+          padding: 1rem;
+        }
+        .arrow {
+    display: none; /* Hide arrows by default */
+    margin-left: 5px; /* Space between text and arrow */
+    font-size: 16px; /* Adjust size as needed */
+    transition: transform 0.3s ease; /* Smooth rotation transition */
+}
+
+.branch-active .arrow {
+    display: inline-block; /* Show arrow for active branch */
+    transform: rotate(90deg); /* Rotate arrow to point right when active */
+}
+
+.years-list {
+    display: none; /* Hide years list by default */
+}
+
+.years-list.active {
+    display: block; /* Show years list when active */
+}
+/* Styling for red background when BTech branches are displayed */
+.branches-list {
+    border: 3px solid #1E3A8A; /* Same color as the heading (you can adjust the color code) */
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.branches-list .heading {
+    background-color: #1E3A8A; /* Keep the same color for the heading */
+    padding: 10px;
+    color: white;
+}
+/* Limit the height of the branches list and add a scrollbar */
+.branches-list ul {
+    max-height: 300px; /* Adjust this value based on how much space you want */
+    overflow-y: auto;  /* Allow vertical scrolling */
+}
+
+/* Optional: Customize the scrollbar (for WebKit-based browsers) */
+.branches-list ul::-webkit-scrollbar {
+    display: none;
+}
+
+.branches-list ul::-webkit-scrollbar-thumb {
+    background-color: #1E3A8A; /* Customize scrollbar thumb color */
+    border-radius: 10px;
+}
+.branch-arrow {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border: solid black;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            margin-right: 10px;
+            transition: transform 0.3s ease;
+        }
+        .branch-item.active .branch-arrow {
+            transform: rotate(-135deg); /* Rotate to point down */
+        }
+        .years-list {
+            display: none;
+            margin-top: 10px;
+        }
+        .years-list.active {
+            display: block;
+        }
+
+.branch-arrow-mtech{
+     display: inline-block;
+            width: 10px;
+            height: 10px;
+            border: solid black;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            margin-right: 10px;
+            transition: transform 0.3s ease;
+}
+.branch-item.active .branch-arrow-mtech {
+            transform: rotate(-135deg); /* Rotate to point down */
+        }
+.program-item {
+    position: relative; /* Positioning for proper alignment of children */
+    margin-bottom: 1rem;
+}
+
+.program-btn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+.branch-item {
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid #ddd; /* Separator between items */
+}
+
+.branch-item:last-child {
+    border-bottom: none; /* Remove the separator for the last item */
+}
+
+.branch-item.active {
+    background-color: #e0f7fa; /* Highlight selected branch */
+}
+
+
+.years-list ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.years-list li {
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid #ddd; /* Separator between items */
+}
+
+.years-list li:last-child {
+    border-bottom: none; /* Remove the separator for the last item */
+}
+.program-btn {
+    border-radius: 12px; /* Full border-radius */
+    border-bottom-left-radius: 0 !important; /* Remove bottom-left border-radius */
+    border-bottom-right-radius: 0 !important; /* Remove bottom-right border-radius */
+}
+
+
+/* Styling for the branches list */
+.branches-list {
+    display: none; /* Initially hidden */
+    position: relative; /* Relative positioning to keep it within the bounds of the program-item */
+    width: 100%;
+    background: #fff; /* Background color for the dropdown */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border-radius: 8px; /* Rounded corners */
+    padding: 1rem;
+    border: 1px solid #ddd; /* Border for the dropdown */
+    border-top-left-radius: 0; /* Remove top-left border-radius */
+    border-top-right-radius: 0; /* Remove top-right border-radius */
+    border-bottom-left-radius: 12px; /* Round bottom-left corner */
+    border-bottom-right-radius: 12px; /* Round bottom-right corner */
+    border-right: 1px solid #ddd; /* Optional: Add right border to separate from years section */
+    padding: 15px; /* Add padding if needed */
+    flex: 1; /* Flex to occupy remaining space */
+}
+
+/* Styling for the years list */
+.years-list {
+    border-top-left-radius: 0; /* Remove top-left border-radius */
+    border-top-right-radius: 0; /* Remove top-right border-radius */
+    border-bottom-left-radius: 12px; /* Round bottom-left corner */
+    border-bottom-right-radius: 12px; /* Round bottom-right corner */
+    padding: 15px; /* Add padding if needed */
+    flex: 1; /* Flex to occupy remaining space */
+    background-color: white; /* Optional: Set background color */
+    margin-top: 0rem;
+}
+
+/* Styling for the branches list */
+.branches-list {
+    flex: 1; /* Flex to occupy remaining space */
+    border: 1px solid #ddd; /* Border to separate from years section */
+    padding: 15px; /* Add padding if needed */
+    background-color: #fff; /* Set background color */
+    position: relative; /* Ensure this is above the footer */
+    z-index: 1; /* Lower z-index to ensure it appears below the header */
+}
+
+/* Styling for the years list */
+.years-list {
+    position: absolute; /* Position absolutely relative to parent */
+    left: 100%; /* Place it to the right of the branches list */
+    top: 0; /* Align to the top of the branches list */
+    z-index: 10; /* Ensure it's above other content */
+    display: none; /* Hide by default, show with JavaScript */
+    background-color: #fff; /* Set background color to match */
+    border: 1px solid #ddd; /* Add border for visibility */
+    padding: 15px; /* Add padding if needed */
+}
+
+/* Footer styling */
+footer {
+    position: fixed; /* Fix the footer at the bottom of the page */
+    bottom: 0;
+    width: 100%;
+    background-color: #f1f1f1; /* Example background color */
+    text-align: center;
+    padding: 10px;
+    z-index: 1; /* Ensure it's below the header and dropdown */
+}
+@media (max-width:823px) {
+  .programs{
+        width:90vw;
+  }
+}
+@media (max-width:614px) {
+  .programs{
+        width:75vw;
+  }
+ 
+      .branches-list li, .years-list li {
+        font-size: 1rem;
+    }
+}
+
   </style>
 </head>
 
@@ -270,297 +518,535 @@ width: 200px;
     </nav>
   </div>
 
+
+
+
+
+
+
+
+<div class="container">
+
+        
+
+
+ <div class="programs">
+    <!-- BTech Section -->
+    <div class="program-item">
+        <button class="program-btn transition delay-100 duration-300 hover:cursor-pointer hover:shadow-xl hover:bg-sky-400 hover:shadow-sky-500 hover:scale-110 w-full px-3 py-5 bg-white shadow shadow-gray-400 rounded-xl" onclick="toggleBranches('btech')">BTech</button>
+        <div id="btech-branches" class="branches-list">
+            <h2 class="heading">BTech Branches</h2>
+            <ul id="btech-branches-list">
+                <li class="branch-item" onclick="toggleYears('btech', 'branch-bio-tech')" id="branch-bio-tech">
+                    <span class="branch-arrow"></span>Bio Technology
+                </li>
+                <li class="branch-item" onclick="toggleYears('btech', 'Chemical Engineering')" id="Chemical Engineering">
+                    <span class="branch-arrow"></span>Chemical Engineering
+                </li>
+                <li class="branch-item" onclick="toggleYears('btech', 'Civil Engineering')" id="Civil Engineering">
+                    <span class="branch-arrow"></span>Civil Engineering
+                </li>
+                <li class="branch-item" onclick="toggleYears('btech', 'Computer Science and Engineering')" id="Computer Science and Engineering">
+                    <span class="branch-arrow"></span>Computer Science and Engineering
+                </li>
+                <li class="branch-item" onclick="toggleYears('btech', 'Data Science and Engineering')" id="Data Science and Engineering">
+                    <span class="branch-arrow"></span>Data Science and Engineering
+                </li>
+                <li class="branch-item" onclick="toggleYears('btech', 'Electrical Engineering')" id="Electrical Engineering">
+                    <span class="branch-arrow"></span>Electrical Engineering
+                </li>
+                <li class="branch-item" onclick="toggleYears('btech', 'Electronics and Communication Engineering')" id="Electronics and Communication Engineering">
+                    <span class="branch-arrow"></span>Electronics and Communication Engineering
+                </li>
+                <li class="branch-item" onclick="toggleYears('btech', 'Electronics and VLSI Engineering')" id="Electronics and VLSI Engineering">
+                    <span class="branch-arrow"></span>Electronics and VLSI Engineering
+                </li>
+                <li class="branch-item" onclick="toggleYears('btech', 'Industrial and Production Engineering')" id="Industrial and Production Engineering">
+                    <span class="branch-arrow"></span>Industrial and Production Engineering
+                </li>
+                <li class="branch-item" onclick="toggleYears('btech', 'Information Technology')" id="Information Technology">
+                    <span class="branch-arrow"></span>Information Technology
+                </li>
+                <li class="branch-item" onclick="toggleYears('btech', 'Instrumental and Control Engineering')" id="Instrumental and Control Engineering">
+                    <span class="branch-arrow"></span>Instrumental and Control Engineering
+                </li>
+                <li class="branch-item" onclick="toggleYears('btech', 'Mathematics and Computing')" id="Mathematics and Computing">
+                    <span class="branch-arrow"></span>Mathematics and Computing
+                </li>
+                <li class="branch-item" onclick="toggleYears('btech', 'Mechanical Engineering')" id="Mechanical Engineering">
+                    <span class="branch-arrow"></span>Mechanical Engineering
+                </li>
+                <li class="branch-item" onclick="toggleYears('btech', 'Textile Technology')" id="Textile Technology">
+                    <span class="branch-arrow"></span>Textile Technology
+                </li>
+            </ul>
+            <div id="btech-years" class="years-list">
+                <h2 class="heading">Years</h2>
+                <ul>
+                    <li onclick="handleYears('Bachelor of Technology (B.Tech)', '2022')">2022</li>
+                    <li onclick="handleYears('Bachelor of Technology (B.Tech)', '2023')">2023</li>
+                    <li onclick="handleYears('Bachelor of Technology (B.Tech)', '2024')">2024</li>
+                    <li onclick="handleYears('Bachelor of Technology (B.Tech)', '2025')">2025</li>
+                    <li onclick="handleYears('Bachelor of Technology (B.Tech)', '2026')">2026</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- MTech Section -->
+    <div class="program-item">
+        <button class="program-btn transition delay-100 duration-300 hover:cursor-pointer hover:shadow-xl hover:bg-sky-400 hover:shadow-sky-500 hover:scale-110 w-full px-3 py-5 bg-white shadow shadow-gray-400 rounded-xl" onclick="toggleBranches('mtech')">MTech</button>
+        <div id="mtech-branches" class="branches-list">
+            <h2 class="heading">MTech Branches</h2>
+            <ul>
+                <li class="branch-item" onclick="toggleYears('mtech', 'Artificial Intelligence')" id="Artificial Intelligence">
+    <span class="branch-arrow"></span>Artificial Intelligence
+       </li>
+         <li class="branch-item" onclick="toggleYears('mtech', 'Biotechnology')" id="Biotechnology">
+        <span class="branch-arrow"></span>Bio Technology
+         </li>
+
  
-  <div class="container">
-        <div class="programs">
-            <div class="program-item">
-                <button class="prgram-btn transition delay-100 duration-300 hover:cursor-pointer hover:shadow-xl hover:bg-sky-400 hover:shadow-sky-500 hover:scale-110 w-full px-3 py-5 bg-white shadow shadow-gray-400 rounded-xl" onclick="toggleBranches('btech')">BTech</button>
-                 <div id="btech-branches" class="branches-list">
-                   <ul>
-                     <ul>
-    <li onclick="toggleYears('btech','Bio Technology')">Bio Technology</li>
-    <li onclick="toggleYears('btech','Chemical Engineering')">Chemical Engineering</li>
-    <li onclick="toggleYears('btech','Civil Engineering')">Civil Engineering</li>
-    <li onclick="toggleYears('btech','Computer Science and Engineering')">Computer Science and Engineering</li>
-    <li onclick="toggleYears('btech','Data Science and Engineering')">Data Science and Engineering</li>
-    <li onclick="toggleYears('btech','Electrical Engineering')">Electrical Engineering</li>
-    <li onclick="toggleYears('btech','Electronics and Communication Engineering')">Electronics and Communication Engineering</li>
-    <li onclick="toggleYears('btech','Electronics and VLSI Engineering')">Electronics and VLSI Engineering</li>
-    <li onclick="toggleYears('btech','Industrial and Production Engineering')">Industrial and Production Engineering</li>
-    <li onclick="toggleYears('btech','Information Technology')">Information Technology</li>
-    <li onclick="toggleYears('btech','Instrumental and Control Engineering')">Instrumental and Control Engineering</li>
-    <li onclick="toggleYears('btech','Mathematics and Computing')">Mathematics and Computing</li>
-    <li onclick="toggleYears('btech','Mechanical Engineering')">Mechanical Engineering</li>
-    <li onclick="toggleYears('btech','Textile Technology')">Textile Technology</li>
-</ul>
 
 
-                    <div id="btech-years" class="years-list">
-                        <ul>
-                            <li onclick="handleYears('Bachelor of Technology (B.Tech)','2022')">2022</li>
-                            <li onclick="handleYears('Bachelor of Technology (B.Tech)','2023')">2023</li>
-                            <li onclick="handleYears('Bachelor of Technology (B.Tech)','2024')">2024</li>
-                            <li onclick="handleYears('Bachelor of Technology (B.Tech)','2025')">2025</li>
-                            <li onclick="handleYears('Bachelor of Technology (B.Tech)','2026')">2026</li>
-                        </ul>
-                    </div>
-                </div>
+<li class="branch-item" onclick="toggleYears('mtech', 'CSE')" id="CSE">
+    <span class="branch-arrow-mtech"></span>Computer Science and Engineering
+</li>
+<li class="branch-item" onclick="toggleYears('mtech', 'Data Science and Engineering')" id="Data Science and Engineering">
+    <span class="branch-arrow-mtech"></span>Data Science and Engineering
+</li>
+<li class="branch-item" onclick="toggleYears('mtech', 'Electronics and Communication Engineering')" id="Electronics and Communication Engineering">
+    <span class="branch-arrow-mtech"></span>Electronics and Communication Engineering
+</li>
+<li class="branch-item" onclick="toggleYears('mtech', 'Mechanical Engineering')" id="Mechanical Engineering">
+    <span class="branch-arrow-mtech"></span>Mechanical Engineering
+</li>
+<li class="branch-item" onclick="toggleYears('mtech', 'VLSI Design')" id="VLSI Design">
+    <span class="branch-arrow-mtech"></span>VLSI Design
+</li>
+<li class="branch-item" onclick="toggleYears('mtech', 'Thermal Engineering')" id="Thermal Engineering">
+    <span class="branch-arrow-mtech"></span>Thermal Engineering
+</li>
+<li class="branch-item" onclick="toggleYears('mtech', 'Textile Engineering and Management')" id="Textile Engineering and Management">
+    <span class="branch-arrow-mtech"></span>Textile Engineering and Management
+</li>
+<li class="branch-item" onclick="toggleYears('mtech', 'Structural and Construction Engineering')" id="Structural and Construction Engineering">
+    <span class="branch-arrow-mtech"></span>Structural and Construction Engineering
+</li>
+<li class="branch-item" onclick="toggleYears('mtech', 'Geotechnical & Geo-environmental Engineering')" id="Geotechnical & Geo-environmental Engineering">
+    <span class="branch-arrow-mtech"></span>Geotechnical and Geo-environmental Engineering
+</li>
+<li class="branch-item" onclick="toggleYears('mtech', 'Control and Instrumentation Engineering')" id="Control and Instrumentation Engineering">
+    <span class="branch-arrow-mtech"></span>Control and Instrumentation Engineering
+</li>
+<li class="branch-item" onclick="toggleYears('mtech', 'Design Engineering')" id="Design Engineering">
+    <span class="branch-arrow-mtech"></span>Design Engineering
+</li>
+<li class="branch-item" onclick="toggleYears('mtech', 'Computer Science & Engineering (Information Security)')" id="Computer Science & Engineering (Information Security)">
+    <span class="branch-arrow-mtech"></span>Computer Science and Engineering (Information Security)
+</li>
+<li class="branch-item" onclick="toggleYears('mtech', 'Renewable Energy')" id="Renewable Energy">
+    <span class="branch-arrow-mtech"></span>Renewable Energy  
+</li>
+<li class="branch-item" onclick="toggleYears('mtech', 'Signal Processing and Machine Learning')" id="Signal Processing and Machine Learning">
+    <span class="branch-arrow-mtech"></span>Signal Processing And Machine Learning
+</li>
+<li class="branch-item" onclick="toggleYears('mtech', 'Data Analytics')" id="Data Analytics">
+    <span class="branch-arrow-mtech"></span>Data Analytics
+</li>
+
+                <!-- Add other MTech branches similarly -->
+
+            </ul>
+            <div id="mtech-years" class="years-list">
+                <h2 class="heading">Years</h2>
+                <ul>
+                    <li onclick="handleYears('Master of Technology (M.Tech)', '2022')">2022</li>
+                    <li onclick="handleYears('Master 
+                    of Technology (M.Tech)', '2023')">2023</li>
+                    <li onclick="handleYears('Master of Technology (M.Tech)', '2024')">2024</li>
+                    <li onclick="handleYears('Master of Technology (M.Tech)', '2025')">2025</li>
+                    <li onclick="handleYears('Master of Technology (M.Tech)', '2026')">2026</li>
+                    <!-- Add other years similarly -->
+                </ul>
             </div>
+        </div>
+        </div>
 
-            <div class="program-item">
-                <button class="transition delay-100 duration-300 hover:cursor-pointer hover:shadow-xl hover:bg-sky-400 hover:shadow-sky-500 hover:scale-110 w-full px-3 py-5 bg-white shadow shadow-gray-400 rounded-xl" onclick="toggleBranches('mtech')">MTech</button>
-                <div id="mtech-branches" class="branches-list">
-                    <ul class="list-none p-2">
-                        <li onclick="toggleYears('mtech','Artificial Intelligence')">Artificial Intelligence</li>
-                        <li onclick="toggleYears('mtech','Bio Technology')">Bio Technology</li>
-                        <li onclick="toggleYears('mtech','Chemical Engineering')">Chemical Engineering</li>
-                        <li onclick="toggleYears('mtech','Civil Engineering')">Civil Engineering</li>
-                        <li onclick="toggleYears('mtech','Computer Science and Engineering')">Computer Science and Engineering</li>
-                        <li onclick="toggleYears('mtech','Data Science and Engineering')">Data Science and Engineering</li>
-                        <li onclick="toggleYears('mtech','Electrical Engineering')">Electrical Engineering</li>
-                        <li onclick="toggleYears('mtech','Electronics and Communication Engineering')">Electronics and Communication Engineering</li>
-                        <li onclick="toggleYears('mtech','Information Technology')">Information Technology</li>
-                        <li onclick="toggleYears('mtech','Mechanical Engineering')">Mechanical Engineering</li>
-                    </ul>
 
-                    <div id="mtech-years" class="years-list">
-                        <ul>
-                           <li onclick="handleYears('Master of Technology (M.Tech)','2022')">2022</li>
-                            <li onclick="handleYears('Master of Technology (M.Tech)','2023')">2023</li>
-                            <li onclick="handleYears('Master of Technology (M.Tech)','2024')">2024</li>
-                            <li onclick="handleYears('Master of Technology (M.Tech)','2025')">2025</li>
-                            <li onclick="handleYears('Master of Technology (M.Tech)','2026')">2026</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
 
-            <div class="program-item">
-                <button class="transition delay-100 duration-300 hover:cursor-pointer hover:shadow-xl hover:bg-sky-400 hover:shadow-sky-500 hover:scale-110 w-full px-3 py-5 bg-white shadow shadow-gray-400 rounded-xl" onclick="toggleBranches('mba')">MBA</button>
-                <div id="mba-branches" class="branches-list">
-                   <ul>
-                      <li onclick="toggleYears('mba','Humanities and Management')">Humanities and Management</li>
-                  </ul>
+    <!-- MBA Section -->
+     <div class="program-item">
+        <button class="program-btn transition delay-100 duration-300 hover:cursor-pointer hover:shadow-xl hover:bg-sky-400 hover:shadow-sky-500 hover:scale-110 w-full px-3 py-5 bg-white shadow shadow-gray-400 rounded-xl" onclick="toggleBranches('mba')">MBA</button>
+        <div id="mba-branches" class="branches-list">
+            <h2 class="heading">MBA Branches</h2>
+            <ul>
+                <!-- MBA branches if any -->
+               
+                <li class="branch-item" onclick="toggleYears('mba','Humanities and Management')" id="Humanities and Management">
+                    <span class="branch-arrow"></span>Humanities and Management
+                </li>
+                <!-- Add other MBA branches similarly -->
+            </ul>
 
-                    <div id="mba-years" class="years-list">
-                        <ul>
+            <div id="mba-years" class="years-list">
+                <h2 class="heading">Years</h2>
+               <ul>
                            <li onclick="handleYears('Master of Business Administration (MBA)','2022')">2022</li>
                             <li onclick="handleYears('Master of Business Administration (MBA)','2023')">2023</li>
                             <li onclick="handleYears('Master of Business Administration (MBA)','2024')">2024</li>
                             <li onclick="handleYears('Master of Business Administration (MBA)','2025')">2025</li>
                             <li onclick="handleYears('Master of Business Administration (MBA)','2026')">2025</li>
                         </ul>
-                    </div>
-                </div>
             </div>
         </div>
+     </div>
+ </div>
+
+   
     </div>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   <div id="course-table" class="table-container"></div>
+  <script>
+    
+  async function fetchCourseData(degree, branch, year) {
 
-  
-
- 
-
-<script>
-    async function fetchCourseData(degree, branch,year) {
-      const studentTableContainer = document.getElementById("student-table");
-  studentTableContainer.innerHTML = "";
-      try {
+   
+    const studentTableContainer = document.getElementById("student-table");
+    studentTableContainer.innerHTML = "";
+    try {
         const response = await fetch('{{URL}}/Placement_Insights/');
         const data = await response.json();
-        console.log(data);
-        const filteredData = data.filter(item => item.course === degree && item.department === branch && item.year===Number(year));
 
+        const filteredData = data.filter(item =>
+            item.course === degree &&
+            (degree === 'MBA' || item.department === branch) &&
+            item.year === Number(year)
+        );
+
+         console.log(data);
         const aggregatedData = filteredData.reduce((acc, item) => {
-          if (!acc[item.company]) {
-            acc[item.company] = {
-              company: item.company,
-              package: parseFloat(item.package),
-              count: 1
-            };
-          } else {
-            acc[item.company].package = Math.max(acc[item.company].package, parseFloat(item.package));
-            acc[item.company].count += 1;
-          }
-          return acc;
+            if (!acc[item.company]) {
+                acc[item.company] = {
+                    company: item.company,
+                    package: parseFloat(item.package),
+                    count: 1
+                };
+            } else {
+                acc[item.company].package = Math.max(acc[item.company].package, parseFloat(item.package));
+                acc[item.company].count += 1;
+            }
+            return acc;
         }, {});
 
         const tableData = Object.values(aggregatedData).map(item => [
-          item.company,
-          `${item.package} LPA`,
-          item.count,
-          'View'
+            item.company,
+            `${item.package} LPA`,
+            item.count,
+            'View'
         ]);
-        // Hide all branch lists
-    const branchLists = document.querySelectorAll('.branches-list');
-    branchLists.forEach(list => {
-        list.style.display = 'none';
-    });
 
-    // Hide all year lists
-    const yearLists = document.querySelectorAll('.years-list');
-    yearLists.forEach(list => {
-        list.style.display = 'none';
-    });
+        // Hide all branch lists and year lists
+        document.querySelectorAll('.branches-list').forEach(list => list.style.display = 'none');
+        document.querySelectorAll('.years-list').forEach(list => list.style.display = 'none');
+        
         createTable(tableData, filteredData);
-      } catch (error) {
+    } catch (error) {
         console.error('Error fetching data:', error);
-      }
-    } 
+    }
+}
 
-    function createTable(data, originalData) {
-      const tableContainer = document.getElementById("course-table");
-      tableContainer.innerHTML = "";
 
-      if (!data || data.length === 0) {
+
+// Complete script file
+
+// Complete script file
+
+function createTable(data, originalData) {
+    const tableContainer = document.getElementById("course-table");
+    tableContainer.innerHTML = "";
+
+    if (!data || data.length === 0) {
         tableContainer.innerHTML = "<p>No data available</p>";
         return;
-      }
+    }
 
-      const table = document.createElement("table");
-      table.className = "min-w-full bg-white border border-gray-300";
+    const table = document.createElement("table");
+    table.className = "min-w-full bg-white border border-gray-300";
 
-      const thead = document.createElement("thead");
-      const headerRow = document.createElement("tr");
-      const headers = ["Company Name", "CTC", "Number of Students Placed", "View"];
-      headers.forEach(headerText => {
+    const thead = document.createElement("thead");
+    const headerRow = document.createElement("tr");
+    const headers = ["Company Name", "CTC", "Number of Students Placed", "View"];
+    headers.forEach(headerText => {
         const th = document.createElement("th");
         th.className = "px-4 py-2 border-b font-semibold text-left";
         th.appendChild(document.createTextNode(headerText));
         headerRow.appendChild(th);
-      });
-      thead.appendChild(headerRow);
-      table.appendChild(thead);
+    });
+    thead.appendChild(headerRow);
+    table.appendChild(thead);
 
-      const tbody = document.createElement("tbody");
+    const tbody = document.createElement("tbody");
 
-      data.forEach(rowData => {
+    data.forEach(rowData => {
         const row = document.createElement("tr");
 
         rowData.forEach((cellData, index) => {
-          const cell = document.createElement("td");
-          cell.className = "px-4 py-2 border-b";
-          if (index === 3) {
-            const viewButton = document.createElement("button");
-            viewButton.textContent = "View";
-            viewButton.className = "view-button bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded";
-            viewButton.onclick = function () {
-              alert("Please scroll for details");
-              createStudentTable(rowData[0], originalData);
-            };
-            cell.appendChild(viewButton);
-          } else {
-            cell.appendChild(document.createTextNode(cellData));
-          }
-          row.appendChild(cell);
+            const cell = document.createElement("td");
+            cell.className = "px-4 py-2 border-b";
+            if (index === 3) {
+                const viewButton = document.createElement("button");
+                viewButton.textContent = "View";
+                viewButton.className = "view-button bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded";
+                viewButton.onclick = function () {
+                    alert("Please scroll for details");
+
+
+                    handleViewButtonClick(rowData[0], originalData);
+                };
+                cell.appendChild(viewButton);
+            } else {
+                cell.appendChild(document.createTextNode(cellData));
+            }
+            row.appendChild(cell);
         });
 
         tbody.appendChild(row);
-      });
+    });
 
-      table.appendChild(tbody);
-      tableContainer.appendChild(table);
+    table.appendChild(tbody);
+    tableContainer.appendChild(table);
+}
+
+
+function handleViewButtonClick(company, data) {
+    // Determine if the viewport width is less than 622px
+    if (window.innerWidth < 622) {
+        createStudentTable(company, data);
+    } else {
+      createStudentTable_BigegrWindow(company, data);
+        console.log("View button clicked. Handle this for larger screens as needed.");
+    }
+}
+
+
+function createStudentTable(company, data) {
+    const studentTableContainer = document.getElementById("student-table");
+    studentTableContainer.innerHTML = "";
+
+    const companyData = data.filter(item => item.company === company).sort((a, b) => b.package - a.package);
+
+    if (companyData.length === 0) {
+        studentTableContainer.innerHTML = "<p>No student data available</p>";
+        return;
     }
 
-    function createStudentTable(company, data) {
-  const studentTableContainer = document.getElementById("student-table");
-  studentTableContainer.innerHTML = "";
+    const container = document.createElement("div");
+    container.className = "student-table-container";
 
-  const companyData = data.filter(item => item.company === company).sort((a, b) => b.package - a.package);
+    const table = document.createElement("table");
+    table.className = "min-w-full bg-white border border-gray-300 mt-4";
 
-  if (companyData.length === 0) {
-    studentTableContainer.innerHTML = "<p>No student data available</p>";
-    return;
-  }
+    const thead = document.createElement("thead");
+    const headerRow = document.createElement("tr");
+    const headers = ["Student Name", "Photo"];
+    headers.forEach(headerText => {
+        const th = document.createElement("th");
+        th.className = "px-4 py-2 border-b font-semibold text-left";
+        th.appendChild(document.createTextNode(headerText));
+        headerRow.appendChild(th);
+    });
+    thead.appendChild(headerRow);
+    table.appendChild(thead);
 
-  const table = document.createElement("table");
-  table.className = "min-w-full bg-white border border-gray-300 mt-4";
+    const tbody = document.createElement("tbody");
 
-  // Create table header
-  const thead = document.createElement("thead");
-  const headerRow = document.createElement("tr");
-  const headers = ["Company", "Branch", "Student Name", "CTC", "Year", "View"];
-  headers.forEach(headerText => {
-    const th = document.createElement("th");
-    th.className = "px-4 py-2 border-b font-semibold text-left bg-gray-200";
-    th.appendChild(document.createTextNode(headerText));
-    headerRow.appendChild(th);
-  });
-  thead.appendChild(headerRow);
-  table.appendChild(thead);
+    companyData.forEach(student => {
+        const row = document.createElement("tr");
 
-  // Create table body
-  const tbody = document.createElement("tbody");
+        const cellName = document.createElement("td");
+        cellName.className = "px-4 py-2 border-b";
+        cellName.appendChild(document.createTextNode(student.name));
+        row.appendChild(cellName);
 
-  companyData.forEach(student => {
-    const row = document.createElement("tr");
+        const cellPhoto = document.createElement("td");
+        cellPhoto.className = "px-4 py-2 border-b";
+        const photo = document.createElement("img");
+        photo.src = student.image; // Assuming student.image contains the image URL
+        photo.className = "student-photo";
+        photo.onclick = function () {
+            showImagePopup(student);
+        };
+        cellPhoto.appendChild(photo);
+        row.appendChild(cellPhoto);
 
-    const cellCompany = document.createElement("td");
-    cellCompany.className = "px-4 py-2 border-b";
-    cellCompany.appendChild(document.createTextNode(student.company));
-    row.appendChild(cellCompany);
+        tbody.appendChild(row);
+    });
 
-    const cellBranch = document.createElement("td");
-    cellBranch.className = "px-4 py-2 border-b";
-    cellBranch.appendChild(document.createTextNode(student.department));
-    row.appendChild(cellBranch);
-
-    const cellName = document.createElement("td");
-    cellName.className = "px-4 py-2 border-b";
-    cellName.appendChild(document.createTextNode(student.name));
-    row.appendChild(cellName);
-
-    const cellPackage = document.createElement("td");
-    cellPackage.className = "px-4 py-2 border-b";
-    cellPackage.appendChild(document.createTextNode(`${student.package} LPA`));
-    row.appendChild(cellPackage);
-
-    const cellYear = document.createElement("td");
-    cellYear.className = "px-4 py-2 border-b";
-    cellYear.appendChild(document.createTextNode(student.year));
-    row.appendChild(cellYear);
-
-    const cellView = document.createElement("td");
-    cellView.className = "px-4 py-2 border-b";
-    const viewButton = document.createElement("button");
-    viewButton.textContent = "View";
-    viewButton.className = "view-button bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded";
-    viewButton.onclick = function () {
-      showImagePopup(student.image); // Assuming student.image contains the image URL
-    };
-    cellView.appendChild(viewButton);
-    row.appendChild(cellView);
-
-    tbody.appendChild(row);
-  });
-
-  table.appendChild(tbody);
-  studentTableContainer.appendChild(table);
+    table.appendChild(tbody);
+    container.appendChild(table);
+    studentTableContainer.appendChild(container);
 }
 
-function showImagePopup(imageUrl) {
-  const popup = document.createElement("div");
-  popup.className = "popup-overlay";
-  
-  const popupContent = document.createElement("div");
-  popupContent.className = "popup-content";
-  
-  const img = document.createElement("img");
-  img.src = imageUrl;
-  img.className = "popup-image";
-  
-  const closeButton = document.createElement("button");
-  closeButton.textContent = "Close";
-  closeButton.className = "popup-close";
-  closeButton.onclick = () => document.body.removeChild(popup);
-  
-  popupContent.appendChild(img);
-  popupContent.appendChild(closeButton);
-  popup.appendChild(popupContent);
-  
-  document.body.appendChild(popup);
+
+
+function showImagePopup(student) {
+    const popup = document.createElement("div");
+    popup.className = "popup-overlay";
+    
+    const popupContent = document.createElement("div");
+    popupContent.className = "popup-content";
+    
+    const img = document.createElement("img");
+    img.src = student.image;
+    img.className = "popup-image";
+    
+    const info = document.createElement("div");
+    info.className = "popup-info";
+    
+    const name = document.createElement("p");
+    name.textContent = `Name: ${student.name}`;
+    
+    const company = document.createElement("p");
+    company.textContent = `Company: ${student.company}`;
+    
+    const ctc = document.createElement("p");
+    ctc.textContent = `CTC: ${student.package} LPA`;
+    
+    info.appendChild(name);
+    info.appendChild(company);
+    info.appendChild(ctc);
+    
+    const closeButton = document.createElement("button");
+    closeButton.textContent = "Close";
+    closeButton.className = "popup-close";
+    closeButton.onclick = () => document.body.removeChild(popup);
+    
+    popupContent.appendChild(img);
+    popupContent.appendChild(info);
+    popupContent.appendChild(closeButton);
+    popup.appendChild(popupContent);
+    
+    document.body.appendChild(popup);
 }
+
+
+// Adding styles for responsiveness and popups
+const styles = `
+.table-container {
+    overflow-x: auto;
+    margin: 1rem 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: #f5f5f5;
+}
+
+th, td {
+    padding: 0.5rem;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f0f0f0;
+}
+
+.student-table-container {
+    position: relative;
+}
+
+.student-photo {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    cursor: pointer;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.student-photo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Media query for screens smaller than 622px */
+@media (max-width: 621px) {
+    .student-photo {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background: white;
+    padding: 1em;
+    border-radius: 8px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.popup-image {
+    max-width: 100%;
+    max-height: 40vh;
+    margin-bottom: 1em;
+}
+
+.popup-info {
+    margin-bottom: 1em;
+}
+
+.popup-close {
+    background: #ff0000;
+    color: white;
+    border: none;
+    padding: 0.5em;
+    border-radius: 4px;
+    cursor: pointer;
+}
+`;
+
+const styleSheet = document.createElement("style");
+styleSheet.type = "text/css";
+styleSheet.innerText = styles;
+document.head.appendChild(styleSheet);
+
 
 document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('click', (event) => {
@@ -580,51 +1066,212 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+{{!-- 
 function toggleBranches(program) {
-    // Hide all branch lists
-    const branchLists = document.querySelectorAll('.branches-list');
-    branchLists.forEach(list => {
-        list.style.display = 'none';
-    });
-
-    // Hide all year lists
-    const yearLists = document.querySelectorAll('.years-list');
-    yearLists.forEach(list => {
-        list.style.display = 'none';
-    });
-
-    // Show the selected branch list
-    const branchList = document.getElementById(`${program}-branches`);
-    branchList.style.display = 'block';
-
-    // Hide any previously shown years lists
-    const yearContainer = document.getElementById(`${program}-years`);
-    if (yearContainer) {
-        yearContainer.style.display = 'none';
-    }
-}
-let branch="";
-function toggleYears(program,brch) {
-    branch=brch;
-    const yearContainer = document.getElementById(`${program}-years`);
-    if (yearContainer.style.display === 'block') {
-        yearContainer.style.display = 'none';
+    // Get the branches container for the selected program
+    const branches = document.getElementById(`${program}-branches`);
+    if (branches.style.display === 'none' || branches.style.display === '') {
+        branches.style.display = 'block';
     } else {
-        yearContainer.style.display = 'block';
+        branches.style.display = 'none';
+    }
+} --}}
+
+
+let currentOpenBranch = null;
+
+{{!-- function toggleYears(program, branch) {
+
+  
+    const yearsContainer = document.getElementById(`${program}-years`);
+
+    console.log("Yaer container");
+    console.log(yearsContainer);
+    const branchItem = document.getElementById(branch);
+
+    // Toggle visibility of the years list
+    if (currentOpenBranch === branch) {
+        // Close the currently open branch
+        yearsContainer.style.display = 'none';
+        branchItem.classList.remove('active');
+        currentOpenBranch = null;
+    } else {
+        // Close previously open branch
+        if (currentOpenBranch) {
+            const previousBranchItem = document.getElementById(currentOpenBranch);
+            const previousYearsContainer = document.getElementById(`${program}-years`);
+
+            
+
+            previousYearsContainer.style.display = 'none';
+            previousBranchItem.classList.remove('active');
+        }
+
+        // Open the new branch
+        yearsContainer.style.display = 'block';
+        branchItem.classList.add('active');
+        currentOpenBranch = branch;
+    }
+
+    console.log(currentOpenBranch);
+} --}}
+
+
+
+function toggleYears(program, branch) {
+    const branchItem = document.getElementById(branch);
+    const yearsList = document.getElementById(`${program}-years`);
+    
+    // Toggle the active class on the clicked branch item
+    branchItem.classList.toggle('active');
+    
+    // Toggle the display of the years list
+    if (yearsList.style.display === "none" || !yearsList.style.display) {
+        yearsList.style.display = "block";
+    } else {
+        yearsList.style.display = "none";
     }
 }
-function handleYears(degree,year){
-   fetchCourseData(degree, branch,year);
-}
-</script>
 
+// Initialize visibility state
+document.querySelectorAll('.branches-list').forEach(element => element.style.display = 'none');
+document.querySelectorAll('.years-list').forEach(element => element.style.display = 'none');
+
+
+
+
+function handleYears(degree, year) {
+    fetchCourseData(degree,currentOpenBranch, year);
+}
+
+
+
+function showImagePopup_BiggerWindow(imageUrl) {
+    const popup = document.createElement("div");
+    popup.className = "popup-overlay";
+    
+    const popupContent = document.createElement("div");
+    popupContent.className = "popup-content";
+    
+    const img = document.createElement("img");
+    img.src = imageUrl;
+    img.className = "popup-image";
+    
+    const closeButton = document.createElement("button");
+    closeButton.textContent = "Close";
+    closeButton.className = "popup-close";
+    closeButton.onclick = () => document.body.removeChild(popup);
+    
+    popupContent.appendChild(img);
+    popupContent.appendChild(closeButton);
+    popup.appendChild(popupContent);
+    
+    document.body.appendChild(popup);
+}
+
+
+
+function createStudentTable_BigegrWindow(company, data) {
+    const studentTableContainer = document.getElementById("student-table");
+    studentTableContainer.innerHTML = "";
+
+    const companyData = data.filter(item => item.company === company).sort((a, b) => b.package - a.package);
+
+    if (companyData.length === 0) {
+        studentTableContainer.innerHTML = "<p>No student data available</p>";
+        return;
+    }
+
+    const table = document.createElement("table");
+    table.className = "min-w-full bg-white border border-gray-300 mt-4";
+
+    // Create table header
+    const thead = document.createElement("thead");
+    const headerRow = document.createElement("tr");
+    const headers = ["Company", "Branch", "Student Name", "CTC", "Year", "View"];
+    headers.forEach(headerText => {
+        const th = document.createElement("th");
+        th.className = "px-4 py-2 border-b font-semibold text-left bg-gray-200";
+        th.appendChild(document.createTextNode(headerText));
+        headerRow.appendChild(th);
+    });
+    thead.appendChild(headerRow);
+    table.appendChild(thead);
+
+    // Create table body
+    const tbody = document.createElement("tbody");
+
+    companyData.forEach(student => {
+        const row = document.createElement("tr");
+
+        const cellCompany = document.createElement("td");
+        cellCompany.className = "px-4 py-2 border-b";
+        cellCompany.appendChild(document.createTextNode(student.company));
+        row.appendChild(cellCompany);
+
+        const cellBranch = document.createElement("td");
+        cellBranch.className = "px-4 py-2 border-b";
+        cellBranch.appendChild(document.createTextNode(student.department));
+        row.appendChild(cellBranch);
+
+        const cellName = document.createElement("td");
+        cellName.className = "px-4 py-2 border-b";
+        cellName.appendChild(document.createTextNode(student.name));
+        row.appendChild(cellName);
+
+        const cellPackage = document.createElement("td");
+        cellPackage.className = "px-4 py-2 border-b";
+        cellPackage.appendChild(document.createTextNode(`${student.package} LPA`));
+        row.appendChild(cellPackage);
+
+        const cellYear = document.createElement("td");
+        cellYear.className = "px-4 py-2 border-b";
+        cellYear.appendChild(document.createTextNode(student.year));
+        row.appendChild(cellYear);
+
+        const cellView = document.createElement("td");
+        cellView.className = "px-4 py-2 border-b";
+        const viewButton = document.createElement("button");
+        viewButton.textContent = "View";
+        viewButton.className = "view-button bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded";
+        viewButton.onclick = function () {
+            showImagePopup_BiggerWindow(student.image); // Assuming student.image contains the image URL
+        };
+        cellView.appendChild(viewButton);
+        row.appendChild(cellView);
+
+        tbody.appendChild(row);
+    });
+
+    table.appendChild(tbody);
+    studentTableContainer.appendChild(table);
+}
+
+
+</script>
 <div id="course-table"></div>
 <div id="student-table"></div>
 
 <div>
     {{>footer}}
   </div>
+<script>
+  function toggleBranches(program) {
+    const branches = document.getElementById(`${program}-branches`);
+    
+    // Toggle the display of the branches list
+    if (branches.style.display === "none" || !branches.style.display) {
+        branches.style.display = "block";
+    } else {
+        branches.style.display = "none";
+    }
 
+    // If it's BTech, add the red background
+    if (program === 'btech') {
+        branches.classList.toggle('red-background');
+    }
+}
+</script>
 </body>
 
 </html>
