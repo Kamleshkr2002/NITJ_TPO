@@ -22,6 +22,37 @@
             font-family: "Poppins";
         }
 
+        .hr-text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin: 20px auto;
+            width: 100%; /* Set HR width to 100% for full-width container */
+        }
+
+        .hr-text::before,
+        .hr-text::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, transparent, grey, transparent); /* grey color */
+        }
+
+        .hr-text:not(:empty)::before {
+            margin-right: .5em;
+        }
+
+        .hr-text:not(:empty)::after {
+            margin-left: .5em;
+        }
+
+        .hr-text span {
+            font-size: 1.5rem;
+            color: #0369A0; /* Color changed to #0369A0 */
+            font-weight: bold;
+        }
+
         #header {
             position: sticky;
             top: 0;
@@ -42,8 +73,134 @@
             background-position: center;
             background-size: cover;
         }
-    </style>
 
+        /* Centered Ask New Question button */
+        .ask-button {
+            background-color: #3b82f6;
+            color: white;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 12px 24px;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .ask-button:hover {
+            background-color: #2563eb;
+            transform: scale(1.05);
+        }
+
+        .ask-button:focus {
+            outline: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        /* HR styling */
+        .hr-with-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 40px auto;
+            text-align: center;
+        }
+
+        .hr-with-button::before,
+        .hr-with-button::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, transparent, grey, transparent);
+        }
+
+        .hr-with-button:not(:empty)::before {
+            margin-right: .5em;
+        }
+
+        .hr-with-button:not(:empty)::after {
+            margin-left: .5em;
+        }
+
+        .hr-with-button .ask-button {
+            font-size: 16px;
+            font-weight: 500;
+            padding: 12px 24px;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            background-color: #3b82f6;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .hr-with-button .ask-button:hover {
+            background-color: #2563eb;
+            transform: scale(1.05);
+        }
+
+        .hr-with-button .ask-button:focus {
+            outline: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Popup form styling */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            z-index: 1000;
+            max-width: 500px;
+            width: 90%;
+        }
+
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        .popup-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        
+        .popup-container input,
+        .popup-container select,
+        .popup-container textarea {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .popup-container button {
+            padding: 10px 20px;
+            background-color: #0369A0;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            align-self: center;
+        }
+
+        .popup-container button:hover {
+            background-color: #0356a0;
+        }
+    </style>
 
 </head>
 
@@ -55,9 +212,16 @@
     </div>
     <br><br><br><br><br><br>
 
+    <!-- Fixed Ask Button -->
+    <button type="button" data-mdb-ripple="true" data-mdb-ripple-color="light"
+        class="inline-block ask-button p-3 bg-blue-600 text-white fixed font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out bottom-5 right-5"
+        id="AskNewQuestionButton">
+        Ask New Question
+    </button>
+
     <!-- Back to top button -->
     <button type="button" data-mdb-ripple="true" data-mdb-ripple-color="light"
-        class="inline-block p-3 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out bottom-5 right-5"
+        class="inline-block p-3 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out bottom-[4.5rem] right-5"
         id="btn-back-to-top">
         <svg aria-hidden="true" focusable="false" data-prefix="fas" class="w-4 h-4" role="img"
             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -67,7 +231,9 @@
         </svg>
     </button>
 
-    <!-- backgroud pic and heading -->
+ 
+
+    <!-- background pic and heading -->
     <div>
         <div class="tpofaqs flex flex-col justify-center items-start h-[224px] px-4 lg:px-[11%] py-[48px]">
             <p class="font2 font-bold text-[52px] lg:text-[68px] uppercase text-white leading-[1]">FAQ's</p>
@@ -89,21 +255,60 @@
         </nav>
     </div>
 
-
+    <!-- FAQ content section -->
     <div id="content" class="main-body m-10">
     </div>
-    <br>
+
+    <!-- HR with button -->
+    <div class="hr-with-button">
+        <button id="ask-question-btn" class="ask-button">Ask New Question</button>
+    </div>
+
+    <!-- Popup Form -->
+    <!-- Popup Form -->
+<div class="popup-overlay" id="popup-overlay"></div>
+<div class="popup" id="popup-form">
+    <div class="hr-text">
+        <span>Ask New Question</span>
+    </div>
+    <div class="popup-container">
+        <form id="QueryForm">
+            <input type="text" id="name" name="name" placeholder="Name" required>
+            <input type="email" id="email" name="email" placeholder="Email" required>
+            <input type="tel" id="phone" name="phone" placeholder="Phone" required>
+            <select id="insiderOutsider" name="insiderOutsider" required>
+                <option value="" disabled selected>Insider/Outsider</option>
+                <option value="insider">Insider</option>
+                <option value="outsider">Outsider</option>
+            </select>
+            <div id="roll-number-container" style="display: none;">
+                <input type="text" id="rollNumber" name="rollNumber" value="" placeholder="Roll Number">
+            </div>
+
+            <!-- New Field for Selecting Question Type (Student/Company) -->
+            <select id="question-related-to" name="question-related-to" required>
+                <option value="" disabled selected>Question Related To</option>
+                <option value="Student">Student</option>
+                <option value="Company">Company</option>
+            </select>
+
+            <textarea id="question" name="question" rows="4" placeholder="Your Question" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+
+    <!-- Footer -->
     <div>
         {{>footer}}
     </div>
 </body>
-
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
+    const content = document.getElementById('content');
+    const addFormDom = document.getElementById('QueryForm');
 
-    const content = document.getElementById('content')
-
-
-    let faq_link = `{{URL}}/FAQs/Student`
+    let faq_link = `{{URL}}/FAQs/`;
     fetch(faq_link)
         .then(response => response.json())
         .then(data => {
@@ -117,11 +322,13 @@
             for (let i = 0; i < data.length; i++) {
                 var faq = data[i];
 
-                if (faq.related === "Student") {
+
+                if (faq.show === true) {
                     str2 += `
             <div class="w-full max-w-md bg-white border border-gray-200 rounded-lg shadow shadow-sky-500 px-3 py-5">
                 <div class="flex flex-col space-y-2">
-                    <h5 class="mb-1 font2 text-xl font-bold text-black">${faq.question}</h5>
+                    <h5 class="font2 text-xl font-bold text-black m-0">${faq.question}</h5>
+                    <p class="font2 text-sm text-grey" style="margin:0; color:grey;">(${faq.related})</p>
                     <span class="text-lg font2 font-bold text-sky-500">Answer</span>
                     <p class="font2 text-sm text-black">${faq.answer}</p>
                 </div>
@@ -133,9 +340,9 @@
 
             let str3 = `</div>
               </div>
-            </div>`
+            </div>`;
             content.innerHTML += str1 + str2 + str3;
-        })
+        });
 
     // Get the button
     let mybutton = document.getElementById("btn-back-to-top");
@@ -163,6 +370,70 @@
         document.documentElement.scrollTop = 0;
     }
 
+    // Show/hide roll number field based on insider/outsider selection
+    document.getElementById('insiderOutsider').addEventListener('change', function () {
+        const rollNumberContainer = document.getElementById('roll-number-container');
+        if (this.value === 'insider') {
+            rollNumberContainer.style.display = 'block';
+        } else {
+            rollNumberContainer.style.display = 'none';
+        }
+    });
+
+    // Open and close popup form
+    const popupButton = document.getElementsByClassName('ask-button');
+    const popup = document.getElementById('popup-form');
+    const overlay = document.getElementById('popup-overlay');
+
+    for (let i = 0; i < popupButton.length; i++) {
+    popupButton[i].addEventListener('click', function () {
+        popup.style.display = 'block';
+        overlay.style.display = 'block';
+    });
+    }
+
+    overlay.addEventListener('click', function () {
+        popup.style.display = 'none';
+        overlay.style.display = 'none';
+    });
+
+    addFormDom.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const question = document.getElementById("question").value;
+      const related = document.getElementById("question-related-to").value;
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const phone = document.getElementById("phone").value;
+      const rollNumber = document.getElementById("rollNumber").value;
+      const insiderOutsider = document.getElementById("insiderOutsider").value;
+      const answer = "";
+
+      if (question == "" || related == "" || name == "" || email == "" || phone == "" || insiderOutsider == "" || (insiderOutsider == "insider" && rollNumber == "")) {
+        alert("Please enter all fields");
+        return;
+      }
+
+      axios
+        .post(`{{URL}}/Query/`, {
+          question: question,
+          answer: answer,
+          related: related,
+          name: name,
+          email: email,
+          phone: phone,
+          rollNumber: rollNumber,
+          insiderOutsider: insiderOutsider,
+        })
+        .then((response) => {
+          console.log(response);
+          alert("Data added successfully");
+          location.reload();
+        })
+        .catch((error) => {
+          console.error(error);
+          alert("Error occured while adding data to server");
+        });
+    });
 </script>
 
 </html>
