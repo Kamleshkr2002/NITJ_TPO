@@ -82,7 +82,7 @@
     </nav>
   </div>
 
-  <div class="grid grid-cols-1 m-[5%] lg:grid-cols-2 gap-8 max-w-4xl lg:mx-auto">
+  <div class="grid grid-cols-1 m-[5%] lg:grid-cols-3 gap-8 max-w-4xl lg:mx-auto">
     <div
       class="group transition delay-100 duration-300 hover:cursor-pointer hover:shadow-xl hover:bg-sky-400 hover:shadow-sky-500 hover:scale-110 flex flex-col space-y-4 items-center justify-center w-full h-full px-3 py-5 bg-white shadow shadow-gray-400 rounded-xl"
       onclick="facultyClick()">
@@ -98,6 +98,15 @@
       <div class="flex flex-col space-y-4 items-center justify-center">
         <p class="group-hover:text-white text-lg lg:text-xl whitespace-nowrap text-center text-dark-purple uppercase">
           Student
+        </p>
+      </div>
+    </div>
+    <div
+      class="group transition delay-100 duration-300 hover:cursor-pointer hover:shadow-xl hover:bg-sky-400 hover:shadow-sky-500 hover:scale-110 flex flex-col space-y-4 items-center justify-center w-full h-full px-3 py-5 bg-white shadow shadow-gray-400 rounded-xl"
+      onclick="devClick()">
+      <div class="flex flex-col space-y-4 items-center justify-center">
+        <p class="group-hover:text-white text-lg lg:text-xl whitespace-nowrap text-center text-dark-purple uppercase">
+          Dev Team
         </p>
       </div>
     </div>
@@ -242,6 +251,35 @@
       })
   }
 
+   function devClick() {
+    let pro_link = `{{URL}}/People/Developer`
+    fetch(pro_link)
+      .then(response => response.json())
+      .then(data => {
+        content.innerHTML = innerHTMLD;
+
+        let str1 = "";
+        let str2 = "";
+        let str3 = "</div>";
+
+        str1 += `<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-5 mx-auto w-[90%] my-5" style = "margin-top: 150px;">`;
+        for (let i = 0; i < data.length; i++) {
+          str2 += `<div class="w-full max-w-sm bg-white rounded-lg border border-gray-200 shadow-md my-auto p-4">
+            <div class="flex flex-col items-center pb-2 space-y-1">
+                <img class="mb-3 w-24 h-24 rounded-full shadow-lg" src="${data[i].link}" alt="image">
+                <h5 class="mb-1 text-xl font-medium text-gray-900">${data[i].name}</h5>
+                <p class="text-sm text-gray-500">${data[i].department}</p>
+                <p class="text-sm text-gray-500">${data[i].designation}</p>
+                <div class="flex flex-col lg:flex-col items-center w-[80%] justify-between">
+                  ${data[i].mobileno ? `<span class="text-lg font2 text-sky-500">${data[i].mobileno}</span>` : ''}
+                  <span class="text-lg font2 max-w-[70%] text-sky-500"><u><a target="_blank" href="${data[i].linkedin}">LinkedIn</a></u></span>
+                </div>
+            </div>
+          </div>`;
+        }
+        content.innerHTML += str1 + str2 + str3;
+      })
+  }
   // Get the button
   let mybutton = document.getElementById("btn-back-to-top");
 
